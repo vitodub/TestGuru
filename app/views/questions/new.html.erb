@@ -1,7 +1,7 @@
 <h1>Создать вопрос для теста <%= @test.title %></h1>
 
-<form action="/test/<%= params[:test_id] %>/questions/" method="post">
-  <input type="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<form action="/tests/<%= params[:test_id] %>/questions" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
   <p>
     <label for="question-body">Текст вопроса:</label>
