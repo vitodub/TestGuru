@@ -1,0 +1,13 @@
+<p>
+  <strong><%= @question.body %></strong>
+</p>
+
+<strong>Варианты ответов:</strong>
+
+<ol>
+  <% @question.answers.each do |answer| %>
+    <li><%= answer.body %></li>
+  <% end %>
+</ol>
+
+<%= link_to 'Назад к тесту', test_path(@question.test) %>

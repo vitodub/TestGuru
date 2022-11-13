@@ -1,24 +1,24 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, except: %i[show destroy]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[new create]
+  before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    render plain: @test.questions.inspect
-  end
 
   def show
     render plain: @question.inspect
   end
 
-  def new; end
+  def new
+    @question = @test.questions.new
+  end
+
+  def edit; end
 
   def create
     @question = @test.questions.build(question_params)
     if @question.save
-      redirect_to @question
+      redirect_to @question.test
     else
       render :new
     end
@@ -26,7 +26,15 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.delete
-    render plain: 'Вопрос удален'
+    redirect_to @question.test
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question.test
+    else
+      render :edit
+    end
   end
 
   private

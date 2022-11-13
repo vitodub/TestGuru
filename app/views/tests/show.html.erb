@@ -1,0 +1,35 @@
+<p>
+  <strong>Название:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Уровень:</strong>
+  <%= @test.level %>
+</p>
+
+<div>
+
+  <table>
+    <tr>
+      <th>Список вопросов теста:</th>
+    </tr>
+    <% @test.questions.each do |question| %>
+      <tr>
+        <td>
+          <li><%= question.body %></li>
+        </td>
+        <td><%= link_to 'Редактировать', edit_question_path(question) %></td>
+        <td><%= link_to 'Удалить', question_path(question), method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<p>
+  <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
+</p>
+
+<p>
+  <%= link_to 'Вернуться с списку тестов', tests_path %>
+</p>
