@@ -1,9 +1,11 @@
 class Test < ApplicationRecord
 
+  #has_many :usertests, dependent: :destroy
+  #has_many :users, through: :usertests, dependent: :destroy
+  has_many :test_passages
+  has_many :users, through: :test_passages
   has_many :questions, dependent: :destroy
-  has_many :usertests, dependent: :destroy
-  has_many :users, through: :usertests, dependent: :destroy
-  
+ 
   belongs_to :category
   belongs_to :author, class_name: :User, foreign_key: :author_id
 

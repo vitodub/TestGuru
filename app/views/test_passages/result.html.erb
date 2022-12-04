@@ -1,0 +1,17 @@
+<style>
+   .low { color: red; }
+   .high { color: green; }
+</style>
+
+<h1>Тест <%= @test_passage.test.title %> завершён</h1>
+
+<% correct_percent = ((@test_passage.correct_questions.to_f / 
+@test_passage.test.questions.count.to_f) * 100).to_int%>
+
+<% if correct_percent > 85 %>
+  <p> Тест пройден успешно. Процент верных ответов: <span class="high"><%= correct_percent %></span></p>
+<% else %>
+  <p> Тест не пройден. Процент верных ответов: <span class="low"><%= correct_percent %></span></p>
+<% end %>
+
+<%= link_to "Назад к тестам", tests_path %>
