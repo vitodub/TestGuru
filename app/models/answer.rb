@@ -8,7 +8,7 @@ class Answer < ApplicationRecord
 
   private
 
-  def less_than_4_answer
+  def less_than_4_answers
     errors.add(:more_than_4_answers, "can't have more than 4 answers") if question.answers.count > 3 
   end
 end
