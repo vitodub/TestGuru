@@ -1,6 +1,6 @@
 <h1>Проходим тест <%= @test_passage.test.title %></h1>
 
-<b>Вопрос № <%= @test_passage.test.questions.count - @test_passage.test.questions.where('id > ?', @test_passage.current_question.id).count %>.</b>
+<b>Вопрос № <%= @test_passage.question_number %>.</b>
 
 <b>Всего вопросов <%= @test_passage.test.questions.count %></b>
 

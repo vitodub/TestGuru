@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  PASS_PERCENT = 85.freeze
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -15,6 +17,20 @@ class TestPassage < ApplicationRecord
       self.correct_questions += 1
     end
     save!
+  end
+
+  def correct_percent
+    ((self.correct_questions.to_f / 
+    self.test.questions.count.to_f) * 100).to_int
+  end
+
+  def success?
+    correct_percent > PASS_PERCENT
+  end
+
+  def question_number
+    self.test.questions.count -
+    self.test.questions.where('id > ?', self.current_question.id).count
   end
 
   private
