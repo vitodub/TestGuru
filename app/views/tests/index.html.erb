@@ -1,17 +1,15 @@
 <h1>Список тестов</h1>
 
+<%= link_to 'Новый тест', new_test_path %>
+
 <table>
   <tr>
     <th>Название</th>
     <th>Уровень</th>
     <th>Количество вопросов</th>
+    <th colspan="4">Действия</th>
   </tr>
 
-  <% @tests.each do |test| %>
-    <tr>
-      <td><%= link_to test.title, test_path(test) %></td>
-      <td><%= test.level %></td>
-      <td><%= test.questions.count %></td>
-    </tr>
-  <% end %>
+  <%= render @tests %>
+
 </table>

@@ -1,10 +1,12 @@
 module QuestionsHelper
   
   def question_header(question)
+    base_phrase = "вопрос для теста #{question.test.title} "
+    
     if question.new_record?
-      "Edit #{question.test.title} Question"
+      "Создать новый #{base_phrase}"
     else
-      "Create New #{question.test.title} Question"
+      "Редактировать #{base_phrase}"
     end
   end
 end
