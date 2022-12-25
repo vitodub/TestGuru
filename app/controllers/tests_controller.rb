@@ -23,7 +23,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    @user = User.find_by(id: session[:user_id])
   end
 
 end
