@@ -1,0 +1,16 @@
+<p>
+  <strong><%= @question.body %></strong>
+</p>
+
+<%= link_to 'Новый ответ', new_admin_question_answer_path(@question) %>
+
+<p>
+  <strong>Варианты ответов:</strong>
+</p>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
+
+<%= link_to 'Редактировать тест', edit_admin_question_path(@question) %>
+<%= link_to 'Назад к тесту', admin_test_path(@question.test) %>
