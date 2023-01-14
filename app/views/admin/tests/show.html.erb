@@ -1,22 +1,23 @@
 <p>
-  <strong>Название:</strong>
-  <%= @test.title %>
+  <strong><%= t('.title', title: @test.title) %></strong>
 </p>
 
 <p>
-  <strong>Уровень:</strong>
-  <%= @test.level %>
+  <strong><%= t('.level', level: @test.level) %></strong>
 </p>
 
 <p>
-  <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
+  <%= link_to t('.new_question'), new_admin_test_question_path(@test) %>
 </p>
 
 <ol>
-  <%= render partial: 'questions/question', collection: @test.questions %>
+  <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </ol>
 
 <p>
-  <%= link_to 'Редактировать тест', edit_admin_test_path %>
-  <%= link_to 'Назад с списку тестов', admin_tests_path %>
+  <%= link_to t('.edit_test'), edit_admin_test_path %>
+</p>
+
+<p>
+<%= link_to t('.admin_tests_path'), admin_tests_path %>
 </p>

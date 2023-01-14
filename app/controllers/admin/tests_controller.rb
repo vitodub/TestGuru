@@ -18,7 +18,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.authortests.new(test_params)
   
     if @test.save
-      redirect_to [:admin, @test]
+      redirect_to [:admin, @test], notice: t('.success')
     else
       render :new
     end
@@ -30,6 +30,11 @@ class Admin::TestsController < Admin::BaseController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to [:admin, @test]
   end
 
   private
