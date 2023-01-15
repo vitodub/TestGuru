@@ -13,8 +13,8 @@
   <body>
     <% if user_signed_in? %>
       <p class = 'nav user'>
-        Добро пожаловать, <b><%= current_user.email %></b> Guru | 
-        <%= link_to 'Выйти из системы', destroy_user_session_path, method: :delete %>
+        <%= t('.welcome', user: current_user.email) %>
+        <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
       </p>
     <% end %>
 

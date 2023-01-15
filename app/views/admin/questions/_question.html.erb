@@ -1,8 +1,8 @@
 <li><%= question.body %>
-  <%= link_to 'Показать', admin_question_path(question) %>
-  <%= link_to 'Редактировать', edit_admin_question_path(question) %>
-  <%= link_to 'Удалить',
+  <%= link_to t('.show'), admin_question_path(question) %>
+  <%= link_to t('.edit'), edit_admin_question_path(question) %>
+  <%= link_to t('.delete'),
       admin_question_path(question),
       method: :delete,
-      data: { confirm: 'Вы уверены?' } %>
+      data: { confirm: t('.confirm') } %>
 </li>  
