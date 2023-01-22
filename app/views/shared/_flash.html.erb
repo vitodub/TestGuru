@@ -1,3 +1,7 @@
-<% flash.each do |key, message| %>
-  <%= content_tag :p, message, class: "flash #{key}" %>
-<% end %>  
+<% if flash.present? %>
+<div class="alert alert-primary" role="alert">
+  <% flash.each do |key, message| %>
+    <%= content_tag :p, message, class: "flash #{key}" %>
+  <% end %>  
+</div>
+<% end %>

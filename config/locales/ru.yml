@@ -1,4 +1,10 @@
 ru:
+  devise:
+    sessions:
+      new:
+        email: "Введите email"
+        password: "Введите пароль"
+
   layouts:
     application:
       welcome: "Добро пожаловать, %{user} Guru | "
@@ -76,6 +82,8 @@ ru:
       header: "Панель администратора TestGuru"
       welcome: "Добро пожаловать, %{user} |"
       logout: "Выйти из системы"
+      login: "Войти"
+      signup: "Зарегистрироваться"
 
   shared:
     errors:
@@ -84,6 +92,12 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    nav:
+      header: "Панель администратора TestGuru"
+      welcome: "Добро пожаловать, %{user} |"
+      logout: "Выйти из системы"
+      login: "Войти"
+      signup: "Зарегистрироваться"
 
   tests_mailer:
     completed_test:
