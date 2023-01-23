@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>TestGuru</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,16 +12,12 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <p class = 'nav user'>
-        <%= t('.welcome', user: current_user.email) %>
-        <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
-      </p>
-    <% end %>
+    <%= render 'shared/nav' %>
 
-    <%= render 'shared/flash' %>
-
-    <%= yield %>
+    <div class="container">
+      <%= render 'shared/flash' %>      
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
-  <footer><%= render 'layouts/footer' %></footer>
 </html>
