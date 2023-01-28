@@ -44,6 +44,11 @@ en:
       passing_test: "Passing the test: "
       question_number: "Question № "
       number_of_questions: "Number of questions: "
+  
+  gists:
+    create:
+      success: 'Gist saved successfully! Go <a href="%{link}" target="_blank">here</a> to see your gist'
+      failure: "An error occurred while saving gist"
 
   admin:
     tests:
@@ -78,12 +83,19 @@ en:
         show: "Show"
         delete: "Delete"
         confirm: "Are you sure?"
+    gists:
+      index:
+        header: "Gists table"
+        question: "Question"
+        gist_url: "Gist URL"
+        user: "User"
     nav:
       header: "TestGuru administrator's panel"
       welcome: "Welcome, %{user} |"
       logout: "Logout"
       login: "Log in"
       signup: "Sign up"
+      gists: "Gists table"
     
   shared:
     errors:
@@ -100,3 +112,5 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  description: "A question from TestGuru about %{test_title}"

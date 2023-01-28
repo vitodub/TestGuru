@@ -44,6 +44,11 @@ ru:
       passing_test: "Прохоим тест: "
       question_number: "Вопрос № "
       number_of_questions: "Количество вопросов: "
+  
+  gist:
+    create:
+      success: 'Gist успешно сохранён! Перейдите <a href="%{link}" target="_blank">сюда</a>, чтобы посмотреть ваш gist'
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:
@@ -78,12 +83,19 @@ ru:
         show: "Показать"
         delete: "Удалить"
         confirm: "Вы уверены?"
+    gists:
+      index:
+        header: "Таблица Gists"
+        question: "Вопрос"
+        gist_url: "Gist URL"
+        user: "Пользователь"
     nav:
       header: "Панель администратора TestGuru"
       welcome: "Добро пожаловать, %{user} |"
       logout: "Выйти из системы"
       login: "Войти"
       signup: "Зарегистрироваться"
+      gists: "Таблица Gists"
 
   shared:
     errors:
@@ -103,4 +115,4 @@ ru:
     completed_test:
       subject: "Вы только что прошли тест TestGuru!"
 
-
+  description: "Вопрос от TestGuru по теме %{test_title}"
