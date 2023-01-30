@@ -3,13 +3,15 @@ class GistsController < ApplicationController
   before_action :set_test_passage, only: :create 
   
   def create
-    result = GistQuestionService.new(@test_passage.current_question).call
+    result = GistQuestionService.new(@test_passage.current_question)
 
-    flash_options = if result.html_url.nil?
-      { alert: t('.failure') }
+    result.call
+
+    flash_options = if result.gist_created
+      @test_passage.current_question.gists.create(user_id: current_user.id, url: result.url)
+      { notice: t('.success', link: result.url) }
     else
-      @test_passage.current_question.gists.create(user_id: current_user.id, url: result.html_url)
-      { notice: t('.success', link: result.html_url) }
+      { alert: t('.failure') }
     end
     
     redirect_to @test_passage, flash_options
