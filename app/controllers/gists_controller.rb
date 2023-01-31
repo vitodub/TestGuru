@@ -7,7 +7,7 @@ class GistsController < ApplicationController
 
     result.call
 
-    flash_options = if result.gist_created
+    flash_options = if result.success?
       @test_passage.current_question.gists.create(user_id: current_user.id, url: result.url)
       { notice: t('.success', link: result.url) }
     else
