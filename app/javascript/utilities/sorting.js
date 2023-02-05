@@ -5,11 +5,11 @@ document.addEventListener('turbolinks:load', function() {
 })
 
 function sortRowsByTitle() {
-  var table = document.querySelector('table')
+  var tbody = document.querySelector('tbody')
 
   // NodeList
   // https://developer.mozilla.org/ru/docs/Web/API/NodeList
-  var rows = table.querySelectorAll('tr')
+  var rows = tbody.querySelectorAll('tr')
 
   var sortedRows = []
 
@@ -18,29 +18,24 @@ function sortRowsByTitle() {
 
   }
 
-
-  // Подскажи, пожалуйста, почему здесь у меня не рабоает classList.remove и classList.add?
-  // Стрелки никак не появляются
   if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
-    sortedRows.sort(compareRowsAsc);
-    this.querySelector('.octicon-arrow-up').classList.remove('hide');
-    this.querySelector('.octicon-arrow-down').classList.add('hide');
+    sortedRows.sort(compareRowsAsc)
+    this.querySelector('.octicon-arrow-up').classList.remove('hide')
+    this.querySelector('.octicon-arrow-down').classList.add('hide')
   } else {
-    sortedRows.sort(compareRowsDesc);
-    this.querySelector('.octicon-arrow-down').classList.remove('hide');
-    this.querySelector('.octicon-arrow-up').classList.add('hide');
+    sortedRows.sort(compareRowsDesc)
+    this.querySelector('.octicon-arrow-down').classList.remove('hide')
+    this.querySelector('.octicon-arrow-up').classList.add('hide')
   }
 
-  var sortedTable = document.createElement('table')
-  // Здесь то же самое, класс 'table' будто не добавялется. Почему?
-  sortedTable.classList.add('table')
-  sortedTable.appendChild(rows[0])
+  var sortedtbody = document.createElement('tbody')
+  sortedtbody.appendChild(rows[0])
 
   for (var i = 0; i < sortedRows.length; i++) {
-    sortedTable.appendChild(sortedRows[i])
+    sortedtbody.appendChild(sortedRows[i])
   }
 
-  table.parentNode.replaceChild(sortedTable, table)
+  tbody.parentNode.replaceChild(sortedtbody, tbody)
 
 }
 
