@@ -42,6 +42,7 @@ gem 'rails-i18n', '~> 7.0'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.2.0'
+gem 'octicons_helper'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
