@@ -1,5 +1,7 @@
 <h1><%= t('.passing_test') %><%= @test_passage.test.title %></h1>
 
+<%= render 'progress_bar' %></b>
+
 <b><%= t('.question_number') %><%= @test_passage.question_number %>.</b>
 
 <b><%= t('.number_of_questions') %><%= @test_passage.test.questions.count %></b>
