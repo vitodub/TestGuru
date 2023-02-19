@@ -64,6 +64,8 @@ ru:
       edit:
         header: "Редактировать тест: %{title}"
         admin_tests_path: "Назад к тестам"
+      form_inline:
+        submit: "Ok"
       test:
         edit: "Редактировать"
         show: "Показать"
