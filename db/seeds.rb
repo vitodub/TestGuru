@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user_1 = User.create(first_name: 'Jack', last_name: 'Black', email: 'tester@mail.com',
+                     password: '123456', password_confirmation: '123456', type: 'Admin')
+user_2 = User.create(first_name: 'John', last_name: 'White', email: 'vd@mail.com',
+                     password: '000000', password_confirmation: '000000')
+
 category_1 = Category.create(title: 'Ruby')
 category_2 = Category.create(title: 'Rails')
 category_3 = Category.create(title: 'SQL')
@@ -26,9 +31,3 @@ answer_2 = Answer.create(body: 'Перенос строки', correct: false, qu
 answer_3 = Answer.create(body: 'Создание гипертекстовой ссылки.', correct: false, question_id: question_4.id)
 answer_4 = Answer.create(body: 'Представление тела документа', correct: false, question_id: question_4.id)
 
-user_1 = User.create(name: 'Ruby', password: 'Bury', email: 'ruby@gmail.com')
-user_2 = User.create(name: 'Rails', password: 'Liars', email: 'rails@gmail.com')
-
-Usertest.create(user_id: user_1.id, test_id: test_1.id, status: 0)
-Usertest.create(user_id: user_2.id, test_id: test_2.id, status: 1)
-Usertest.create(user_id: user_1.id, test_id: test_3.id, status: 1)

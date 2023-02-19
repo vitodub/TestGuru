@@ -6,7 +6,7 @@ ruby '3.0.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -43,6 +43,9 @@ gem 'rails-i18n', '~> 7.0'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.2.0'
 gem 'octicons_helper'
+
+# FEEDBACK FORM
+gem 'mail_form'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
