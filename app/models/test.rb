@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
 
-  has_many :test_passages
+  has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
   has_many :questions, dependent: :destroy
 
@@ -11,6 +11,7 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :by_category, ->(name) { joins(:category).where(category: { title: name }) }
+  scope :visible, -> { where(visible: true) }
 
   private
 
