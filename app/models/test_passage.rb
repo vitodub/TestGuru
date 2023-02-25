@@ -8,6 +8,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   after_validation :after_validation_set_next_question, on: :update
 
+  scope :successful, -> { where(successful: true) }
+
   def completed?
     current_question.nil?    
   end
@@ -35,6 +37,10 @@ class TestPassage < ApplicationRecord
 
   def progress
     ((( question_number.to_f - 1) / self.test.questions.count.to_f) * 100).to_int
+  end
+
+  def is_successful
+    self.successful = true
   end
 
   private

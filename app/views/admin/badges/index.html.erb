@@ -1,0 +1,10 @@
+<h1>All available badges </h1>
+
+<br>
+<%= link_to 'New badge', new_admin_badge_url %>
+<table cellpadding="10">
+  <%= render @badges %>
+</table>
+<br>
+
+<%= link_to 'Back to tests', tests_path %>

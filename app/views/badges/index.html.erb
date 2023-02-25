@@ -1,0 +1,20 @@
+<h1>Your badges </h1>
+<br>
+<table cellpadding="10">
+  <% if current_user.badges.empty? %>
+    <h2>You have no badges yet</h2>
+  <% else %>
+    <%= render current_user.badges %>
+  <% end %>
+</table>
+<br>
+
+<h1>All available badges </h1>
+<br>
+<table cellpadding="10">
+  <%= render @badges %>
+</table>
+<br>
+
+<%= link_to 'Back to tests', tests_path %>
+

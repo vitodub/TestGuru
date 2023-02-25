@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :authortests, class_name: :Test, foreign_key: :author_id, dependent: :destroy
   has_many :gists
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   validates :email, presence: true, uniqueness: true,
     format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }

@@ -16,20 +16,20 @@ class Admin::QuestionsController < Admin::BaseController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to @question.test
+      redirect_to [:admin, @test]
     else
       render :new
     end
   end
 
   def destroy
-    @question.delete
-    redirect_to @question.test
+    @question.destroy
+    redirect_to [:admin, @question.test]
   end
 
   def update
     if @question.update(question_params)
-      redirect_to @question.test
+      redirect_to [:admin, @question.test]
     else
       render :edit
     end
