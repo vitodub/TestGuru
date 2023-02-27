@@ -30,8 +30,7 @@ class TestPassagesController < ApplicationController
 
   def check_for_badges
     if @test_passage.success?
-      @test_passage.is_successful
-      @test_passage.save(:validate => false)
+      @test_passage.update_attribute(:successful, true)
       BadgeService.new(@test_passage).call
     end
   end

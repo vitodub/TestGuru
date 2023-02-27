@@ -7,29 +7,23 @@ class BadgeService
   end
 
   def call
-    first_try_passed
-    backend_passed
-    easy_tests_passed    
+    Badge.all.each do |badge|
+      give_badge(badge.title) if send(badge.title)
+    end
   end
 
   private
 
   def first_try_passed
-    if first_try_count == 1 && @test_passage.successful?
-      give_badge('first_try_passed')
-    end
+    first_try_count == 1 && @test_passage.successful?
   end
 
   def backend_passed
-    if user_backend_tests_count == backend_tests_count
-      give_badge('backend_passed')
-    end
+    user_tests_count_by_category('Backend') == count_tests_by_category('Backend')
   end
 
   def easy_tests_passed
-    if user_easy_tests_count == easy_tests_count
-      give_badge('easy_tests_passed')
-    end
+    user_tests_count_by_difficulty_level([0,1]) == count_tests_by_difficulty_level([0,1])
   end
 
   def give_badge(title)
@@ -40,19 +34,19 @@ class BadgeService
     @successful_passages.joins(:test).where(test: { title: @test_title }).count
   end
 
-  def user_backend_tests_count
-    @successful_passages.joins(test: [:category]).where(category: { title: 'Backend' }).count
+  def user_tests_count_by_category(category)
+    @successful_passages.joins(test: [:category]).where(category: { title: category }).count
   end
 
-   def backend_tests_count
-    Test.joins(:category).where(category: { title: 'Backend' }).count
+   def count_tests_by_category(category)
+    Test.joins(:category).where(category: { title: category }, visible: true).count
   end
 
-  def user_easy_tests_count
-    @successful_passages.joins(:test).where(test: { level: [0,1] }).count
+  def user_tests_count_by_difficulty_level(level)
+    @successful_passages.joins(:test).where(test: { level: level }).count
   end
 
-  def easy_tests_count
-    Test.easy.where(visible: true).count
+  def count_tests_by_difficulty_level(level)
+    Test.where(level: level, visible: true).count
   end
 end
