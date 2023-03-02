@@ -8,26 +8,26 @@ class BadgeService
 
   def call
     Badge.all.each do |badge|
-      give_badge(badge.title) if send(badge.title)
+      give_badge(badge) if send(badge.title, badge.parametr)
     end
   end
 
   private
 
-  def first_try_passed
+  def first_try_passed(parametr)
     first_try_count == 1 && @test_passage.successful?
   end
 
-  def backend_passed
-    user_tests_count_by_category('Backend') == count_tests_by_category('Backend')
+  def category_passed(parametr)
+    user_tests_count_by_category(parametr) == count_tests_by_category(parametr)
   end
 
-  def easy_tests_passed
-    user_tests_count_by_difficulty_level([0,1]) == count_tests_by_difficulty_level([0,1])
+  def difficulty_passed(parametr)
+    user_tests_count_by_difficulty_level(parametr.split) == count_tests_by_difficulty_level(parametr.split)
   end
 
-  def give_badge(title)
-    @user.badges << Badge.where(title: title)
+  def give_badge(badge)
+    @user.badges << badge
   end
 
   def first_try_count
