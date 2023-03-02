@@ -14,6 +14,10 @@ class Test < ApplicationRecord
   scope :by_category, ->(name) { joins(:category).where(category: { title: name }) }
   scope :visible, -> { where(visible: true) }
 
+  def has_timer?
+    self.timer > 0 
+  end
+
   private
 
   def self.title_by_category(name)

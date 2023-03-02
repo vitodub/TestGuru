@@ -2,7 +2,11 @@ class TestPassagesController < ApplicationController
 
   before_action :set_test_passage, only: %i[show result update]
 
-  def show; end
+  def show
+    if @test_passage.test.has_timer?
+      @timer = TimerService.new(@test_passage)
+    end  
+  end
 
   def result; end
 
@@ -25,7 +29,7 @@ class TestPassagesController < ApplicationController
   private
 
   def set_test_passage
-    @test_passage = TestPassage.find(params[:id])    
+    @test_passage = TestPassage.find(params[:id]) 
   end 
 
   def check_for_badges
