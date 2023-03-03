@@ -19,6 +19,11 @@
     <%= form.check_box :visible, id: :test_visible %>
    </p>
 
+   <p>
+    <%= form.label :timer %>
+    <%= form.select(:timer, 0..60) %> minutes
+   </p>
+
   <p><%= form.submit %></p>
 
 <% end %>
