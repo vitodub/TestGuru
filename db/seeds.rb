@@ -15,6 +15,7 @@ category_1 = Category.create(title: 'Ruby')
 category_2 = Category.create(title: 'Rails')
 category_3 = Category.create(title: 'SQL')
 category_4 = Category.create(title: 'HTML')
+category_5 = Category.create(title: 'Backend')
 
 test_1 = Test.create(title: 'Структура HTML-документа', level: 0, category_id: category_4.id, author_id: user_1.id)
 test_2 = Test.create(title: 'Разметка текста', level: 0, category_id: category_4.id, author_id: user_1.id)
@@ -31,3 +32,6 @@ answer_2 = Answer.create(body: 'Перенос строки', correct: false, qu
 answer_3 = Answer.create(body: 'Создание гипертекстовой ссылки.', correct: false, question_id: question_4.id)
 answer_4 = Answer.create(body: 'Представление тела документа', correct: false, question_id: question_4.id)
 
+badge_1 = Badge.create(title: 'first_try_passed', image: 'first_try_passed.png', rule: "Pass the test from the first try")
+badge_2 = Badge.create(title: 'backend_passed', image: 'backend_passed.png', rule: "Pass all test from Backend category")
+badge_3 = Badge.create(title: 'easy_tests_passed', image: 'easy_tests_passed.png', rule: "Pass all easy tests")

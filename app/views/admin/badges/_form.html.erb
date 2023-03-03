@@ -1,0 +1,19 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+   <p>
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :badge_title %><br>
+   </p>
+    
+   <p> 
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :badge_level %><br>
+   </p>
+
+   <p> 
+    <%= form.label :rule %>
+    <%= form.text_field :rule, id: :badge_rule %><br>
+   </p>
+
+   <p><%= form.submit %></p>
+
+<% end %>
